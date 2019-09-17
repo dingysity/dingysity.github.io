@@ -82,14 +82,14 @@
 <meta name="description" content="JS中的LHS和RHS什么是LHS和RHS两者都是JS引擎存在的查询方式: LHS（Left-hand Side）:left是指“=”号的左边，意思是要给查询得到的这个变量赋值，比如要吧1付给a变量，要先查询a是否存在，这时候用的就是LHS查询 RHS（Right-hand Side）:right指的是“=”号右边，意思是要获取某个变量的值，比如打印a变量，console.log(a);js引擎要">
 <meta name="keywords" content="java,web,spring,算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ysity">
-<meta property="og:url" content="http://ysity.github.io/2019/09/17/LHS和RHS/index.html">
+<meta property="og:title" content="javascript中LHS和RHS">
+<meta property="og:url" content="http://ysity.github.io/2019/09/17/javascript中LHS和RHS/index.html">
 <meta property="og:site_name" content="ysity">
 <meta property="og:description" content="JS中的LHS和RHS什么是LHS和RHS两者都是JS引擎存在的查询方式: LHS（Left-hand Side）:left是指“=”号的左边，意思是要给查询得到的这个变量赋值，比如要吧1付给a变量，要先查询a是否存在，这时候用的就是LHS查询 RHS（Right-hand Side）:right指的是“=”号右边，意思是要获取某个变量的值，比如打印a变量，console.log(a);js引擎要">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-09-17T07:10:37.018Z">
+<meta property="og:updated_time" content="2019-09-17T07:25:09.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ysity">
+<meta name="twitter:title" content="javascript中LHS和RHS">
 <meta name="twitter:description" content="JS中的LHS和RHS什么是LHS和RHS两者都是JS引擎存在的查询方式: LHS（Left-hand Side）:left是指“=”号的左边，意思是要给查询得到的这个变量赋值，比如要吧1付给a变量，要先查询a是否存在，这时候用的就是LHS查询 RHS（Right-hand Side）:right指的是“=”号右边，意思是要获取某个变量的值，比如打印a变量，console.log(a);js引擎要">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://ysity.github.io/2019/09/17/LHS和RHS/">
+  <link rel="canonical" href="http://ysity.github.io/2019/09/17/javascript中LHS和RHS/">
 
 
 
 
 
-  <title> | ysity</title>
+  <title>javascript中LHS和RHS | ysity</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysity.github.io/2019/09/17/LHS和RHS/">
+    <link itemprop="mainEntityOfPage" href="http://ysity.github.io/2019/09/17/javascript中LHS和RHS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yehang ding">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">javascript中LHS和RHS</h1>
         
 
         <div class="post-meta">
@@ -262,7 +262,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-17T15:10:37+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-17T15:19:09+08:00">
                 2019-09-17
               </time>
             
@@ -300,27 +300,33 @@
       
 
       
-        <h1 id="JS中的LHS和RHS"><a href="#JS中的LHS和RHS" class="headerlink" title="JS中的LHS和RHS"></a>JS中的LHS和RHS</h1><h3 id="什么是LHS和RHS"><a href="#什么是LHS和RHS" class="headerlink" title="什么是LHS和RHS"></a>什么是LHS和RHS</h3><p>两者都是JS引擎存在的查询方式:</p>
+        <h1 id="JS中的LHS和RHS"><a href="#JS中的LHS和RHS" class="headerlink" title="JS中的LHS和RHS"></a>JS中的LHS和RHS</h1><h2 id="什么是LHS和RHS"><a href="#什么是LHS和RHS" class="headerlink" title="什么是LHS和RHS"></a>什么是LHS和RHS</h2><p>两者都是JS引擎存在的查询方式:</p>
 <p><strong>LHS（Left-hand Side）</strong>:left是指“=”号的左边，意思是要给查询得到的这个变量赋值，比如要吧1付给a变量，要先查询a是否存在，这时候用的就是LHS查询</p>
 <p><strong>RHS（Right-hand Side）</strong>:right指的是“=”号右边，意思是要获取某个变量的值，比如打印a变量，console.log(a);js引擎要去查询这个变量是否存在，得到变量只想的值，这个时候用的就是RHS查询</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a;</span><br><span class="line">  rerurn a + b;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a;</span><br><span class="line">  rerurn a + b;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
 <p>以上代码共有三次LHS和四次RHS查询：</p>
+<blockquote>
 <ol>
-<li>var c = foo(1)，需要对变量 c 赋值所以进行一次<strong>LHS查询</strong>，然后将 foo(1) 赋给 c ，foo(1) 的值从哪来呢，需要查找 foo(1) 的值，此时就对 foo(1) 进行一次<strong>RHS查询</strong></li>
-<li>隐含赋值操作，foo(1) 将实参 1 传递给 function foo(a){……} 函数的形参 a ，a 在赋值操作的左侧，对 a 进行一次<strong>LHS查询</strong></li>
-<li>var b = a，需要对变量 b 赋值所以进行一次<strong>LHS查询</strong>，b 的值将从 a 来 ，a 的值从哪来呢，需要查找 a 的值，此时就对 a 进行一次<strong>RHS查询</strong></li>
-<li>return a+b 中，需要找到 a 与 b 的值的来源，a 与 b 都在赋值操作的右侧，才能得到 a+b 的值，所以对 a 与 b 都是进行<strong>RHS查询</strong>引用。</li>
+<li><p>var c = foo(1)，需要对变量 c 赋值所以进行一次<strong>LHS查询</strong>，然后将 foo(1) 赋给 c ，foo(1) 的值从哪来呢，需要查找 foo(1) 的值，此时就对 foo(1) 进行一次<strong>RHS查询</strong></p>
+</li>
+<li><p>隐含赋值操作，foo(1) 将实参 1 传递给 function foo(a){……} 函数的形参 a ，a 在赋值操作的左侧，对 a 进行一次<strong>LHS查询</strong></p>
+</li>
+<li><p>var b = a，需要对变量 b 赋值所以进行一次<strong>LHS查询</strong>，b 的值将从 a 来 ，a 的值从哪来呢，需要查找 a 的值，此时就对 a 进行一次<strong>RHS查询</strong></p>
+</li>
+<li><p>return a+b 中，需要找到 a 与 b 的值的来源，a 与 b 都在赋值操作的右侧，才能得到 a+b 的值，所以对 a 与 b 都是进行<strong>RHS查询</strong>引用。</p>
+</li>
 </ol>
-<h3 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h3><p>LHS和RHS的含义是“赋值操作的左侧或右侧”并不一定意味着就是”=”赋值操作符的左侧或右侧。</p>
+</blockquote>
+<h2 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h2><p>LHS和RHS的含义是“赋值操作的左侧或右侧”并不一定意味着就是”=”赋值操作符的左侧或右侧。</p>
 <p>当变量出现在赋值操作的左侧时进行LHS查询，出现在赋值操作的右侧时进行RHS查询</p>
 <p>RHS查询与简单地查找某个变量的值别无二致，而LHS查询则是试图找到变量的容器本身，从而可以对其赋值。</p>
 <p>如果查找目的是对变量进行赋值，那么就使用LHS查询；如果目的是获取变量的值，就会使用RHS查询。（即可简单理解成”赋值操作的目标是谁（LHS）”以及”谁是赋值操作的源头(RHS)”）</p>
-<h3 id="作用域嵌套"><a href="#作用域嵌套" class="headerlink" title="作用域嵌套"></a>作用域嵌套</h3><p>当一个块或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。遍历嵌套作用域链的规则很简单：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到还是没找到，查找过程都会停止。</p>
+<h2 id="作用域嵌套"><a href="#作用域嵌套" class="headerlink" title="作用域嵌套"></a>作用域嵌套</h2><p>当一个块或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。遍历嵌套作用域链的规则很简单：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到还是没找到，查找过程都会停止。</p>
 <p>这就说明了为什么不加var时定义的是全局变量。</p>
-<h3 id="关于报错"><a href="#关于报错" class="headerlink" title="关于报错"></a>关于报错</h3><p>LHS查询比较松散，如果查询不到，就会创建一个全局的，不会抛出异常。RHS查询比较严格，如果查询不到的话就会抛出异常，因为你要获取某个变量指向的值，可是根本就没有那个变量，这个时候已经超出它的能力范围，所以只能抛出异常</p>
+<h2 id="关于报错"><a href="#关于报错" class="headerlink" title="关于报错"></a>关于报错</h2><p>LHS查询比较松散，如果查询不到，就会创建一个全局的，不会抛出异常。RHS查询比较严格，如果查询不到的话就会抛出异常，因为你要获取某个变量指向的值，可是根本就没有那个变量，这个时候已经超出它的能力范围，所以只能抛出异常</p>
 <p>如下代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a+b)</span><br><span class="line">  b=a</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a+b)</span><br><span class="line">  b=a</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <p><code>b=a</code> 不是变量声明，编译过程中不会将其提前，也就是说，b是一个未声明的变量，在任何相关作用域中都无法找到，因此在执行a+b时RHS查询在所有嵌套的作用域中都遍寻不到所需的变量，因此就会抛出 <code>Uncaught ReferenceError: b is not defined</code>这样一个错误</p>
 <p>JS引擎具体工作过程如下：</p>
@@ -333,14 +339,12 @@
 <li>在当前作用域中查找变量 b，未找到该变量</li>
 <li>将 a 和 b 的查找结果传入 console.log() 函数，打印结果（ b 未定义，抛出 Uncaught ReferenceError:b is not defined）</li>
 </ol>
-<h3 id="为什么要区分LHS和RHS"><a href="#为什么要区分LHS和RHS" class="headerlink" title="为什么要区分LHS和RHS"></a>为什么要区分LHS和RHS</h3><p>这两种不同的引用方式的在对没有声明的变量的处理上是不同的。而这个不同之处对于我们编写代码和分析JS引擎报的错误是很有用处的。</p>
+<h2 id="为什么要区分LHS和RHS"><a href="#为什么要区分LHS和RHS" class="headerlink" title="为什么要区分LHS和RHS"></a>为什么要区分LHS和RHS</h2><p>这两种不同的引用方式的在对没有声明的变量的处理上是不同的。而这个不同之处对于我们编写代码和分析JS引擎报的错误是很有用处的。</p>
 <ul>
-<li><p>当对一个变量执行RHS查询时，如果遍历该变量所在处的词法作用域未能找到这个变量，JS引擎就会抛出 ReferenceError 错误如果成功查询到了这个变量，但是对这个变量执行不合理操作，比如对一个非数组的变量执行下标取值，JS引擎就会抛出 TypeError 错误</p>
-</li>
-<li><p>当对一个变量执行LHS查询时，同样在遍历作用域后无法找到该变量，在非ES5的严格模式下，系统就会自动在全局作用域中创建一个同名变量，并将引用转移到该新建的全局变量中。而在ES5的严格模式下，LHS查询失败时JS引擎会抛出一个同RHS一样的 ReferenceError 错误。</p>
-</li>
+<li>当对一个变量执行RHS查询时，如果遍历该变量所在处的词法作用域未能找到这个变量，JS引擎就会抛出 ReferenceError 错误如果成功查询到了这个变量，但是对这个变量执行不合理操作，比如对一个非数组的变量执行下标取值，JS引擎就会抛出 TypeError 错误</li>
+<li>当对一个变量执行LHS查询时，同样在遍历作用域后无法找到该变量，在非ES5的严格模式下，系统就会自动在全局作用域中创建一个同名变量，并将引用转移到该新建的全局变量中。而在ES5的严格模式下，LHS查询失败时JS引擎会抛出一个同RHS一样的 ReferenceError 错误。</li>
 </ul>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>看到这里应该就能理解为什么使用未定义的变量有时报错有时正常。如果是访问对象的属性就不存在LHS和RHS查询了，找不到就返回 undefined。对这些有更加深刻的理解无论是对JS执行过程本身还是分析抛出的异常都是有好处的</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>看到这里应该就能理解为什么使用未定义的变量有时报错有时正常。如果是访问对象的属性就不存在LHS和RHS查询了，找不到就返回 undefined。对这些有更加深刻的理解无论是对JS执行过程本身还是分析抛出的异常都是有好处的</p>
 
       
     </div>
@@ -496,7 +500,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS中的LHS和RHS"><span class="nav-number">1.</span> <span class="nav-text">JS中的LHS和RHS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是LHS和RHS"><span class="nav-number">1.0.1.</span> <span class="nav-text">什么是LHS和RHS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notice"><span class="nav-number">1.0.2.</span> <span class="nav-text">Notice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域嵌套"><span class="nav-number">1.0.3.</span> <span class="nav-text">作用域嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于报错"><span class="nav-number">1.0.4.</span> <span class="nav-text">关于报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要区分LHS和RHS"><span class="nav-number">1.0.5.</span> <span class="nav-text">为什么要区分LHS和RHS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">1.0.6.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS中的LHS和RHS"><span class="nav-number">1.</span> <span class="nav-text">JS中的LHS和RHS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是LHS和RHS"><span class="nav-number">1.1.</span> <span class="nav-text">什么是LHS和RHS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notice"><span class="nav-number">1.2.</span> <span class="nav-text">Notice</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域嵌套"><span class="nav-number">1.3.</span> <span class="nav-text">作用域嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于报错"><span class="nav-number">1.4.</span> <span class="nav-text">关于报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要区分LHS和RHS"><span class="nav-number">1.5.</span> <span class="nav-text">为什么要区分LHS和RHS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">1.6.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
             
 
           </div>
