@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[记录前端js路径跳转问题]]></title>
+    <url>%2Fundefined%2F%E8%AE%B0%E5%BD%95%E5%89%8D%E7%AB%AFjs%E8%B7%AF%E5%BE%84%E8%B7%B3%E8%BD%AC%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[记录前端js路径跳转问题在工作中处理前端路径跳转问题的时候碰到在a标签 中windows.location.replace 无法跳转的问题。 经试验：window.location.href 和location.href 同样不能跳转。 解决方案 a标签的href属性设置锚点 &lt;a href=&quot;#&quot; class=&quot;goBack&quot; onclick=&#39;event()&#39;&gt;&lt;/a&gt; 在事件后加上return false; (在事件内部加是无效的) &lt;a href=&quot;javascript:;&quot; class=&quot;goBack&quot; onclick=&#39;event();return false;&#39;&gt;&lt;/a&gt;]]></content>
+      <categories>
+        <category>前端,web</category>
+      </categories>
+      <tags>
+        <tag>javascript,web</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端样式]]></title>
+    <url>%2Fundefined%2F%E5%89%8D%E7%AB%AF%E6%A0%B7%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[样式 背景 （不可被继承） 背景色 background-color 颜色单词 red，blue，black等 #000000 或者缩写 #000 (缩写需要每相邻的两位数字相同) 值为0-F 16进制数字 rgb(0,0,0), rgba(0,0,0,0) 值为0-255， a为透明度，值为0-1，四个值都可使用百分数 背景图片 background-image url(图片路径) 背景重复 background-repeat 水平平铺 repeat-x 垂直平铺 repeat-y 不平铺 no-repeat 背景定位 background-position top,right,bottom,left,center 百分比（以图片中心和容器中心做对比） 长度值（以图片左上角和容器左上角做对比） 背景关联 background-attachment scroll 默认值，背景图片随滚动条滚动 fixed 背景图片不随滚动条滚动 同时声明全部属性，顺序如下background: 背景色 背景图片 背景重复 背景关联 背景定位; 文本 颜色 color 背景颜色 background-color 行高 line-height （设置为100%可实现文本垂直居中） 缩进文本 text-indent 水平对齐 text-alignt left，center，right 两端对齐 justify 字(单词)间隔 word-spacing 字母间隔 letter-spacing 字符转换 text-transform 大写 uppercase 小写 lowercase 首字母大写 capitalize 文本装饰 text-decoration 下划线 underline 上划线 overline 删除线 line-through 空白符处理 white-space pre 不合并空白符，换行符，不允许自动换行 nowrap 合并空白符，换行符，不允许自动换行 pre-wrap 不合并空白符，换行符，允许自动换行 pre-line 合并空白符，保留换行符， 允许自动换行 normal 合并空白符，换行符, 允许自动换行 字体 字体 font-family 可设置多个字体防止用户本地没有对应的字体 字体风格 font-style 斜体 italic 文本倾斜 oblique（和斜体没什么区别） 字体变形 font-variant small-caps 可让小写字母变大写并保持小写的大小 字体加粗 font-weight 字体大小 font-size 默认16px 链接 未访问的样式 a:link 已访问的样式 a:visited 鼠标指针悬停样式 a:hover 被点击时样式 a:active上述四种样式排序规则 列表 列表项标志: list-style-type 列表项图像: list-style-image]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pev's problem]]></title>
     <url>%2Fundefined%2Fpev-s-problem%2F</url>
     <content type="text"><![CDATA[记录一下生产中所遇到的问题new Date(time)在iOS真机环境下的兼容性问题new Date(xxxx-xx-xx xx:xx:xx) 在iOS下被认为是错误的使用方式，通过该对象创建的日期返回的是valid Date ，在iOS下使用new Date() 需要特定的事件格式 ：xxxx/xx/xx xx:xx:xx 。已下记录一下更改的方式: 123let time = 2019-09-20 12:00:00let time_ios = new Date(time) //在iOS下出错let time_change = new Date(time.replace(/-/g,'/')) //正确 补充当值为NaN 时，使用jquery 的html(NaN) 方法和document.getElementBy[*].innerHTML = NaN 赋值时在页面上不会显示NaN 。使用jquery的text(NaN) 方法则会。上面iOS下的时间格式问题用错会产生NaN。 123$('#time').html(NaN) //页面不会显示 document.getElementById('time').innerHTML = NaN //同上$('#time').text(NaN) //页面显示]]></content>
