@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="ysity">
 <meta property="og:description" content="spring cloud 起步（一）创建注册中心 创建maven工程（不使用任何模板），添加依赖 1234567891011121314151617181920212223&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-11-27T10:48:19.534Z">
+<meta property="og:updated_time" content="2019-11-27T11:10:02.533Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring cloud 起步(-)">
 <meta name="twitter:description" content="spring cloud 起步（一）创建注册中心 创建maven工程（不使用任何模板），添加依赖 1234567891011121314151617181920212223&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter">
@@ -347,7 +347,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-27T18:48:19+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-27T19:10:02+08:00">
                 2019-11-27
               </time>
             
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  402
+                  609
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2
+                  3
                 </span>
               
             </div>
@@ -469,6 +469,30 @@
 <p>​    <code>@EnableEurekaServer:</code> 声明该类是一个Eureka Server微服务，提供服务注册和发现功能，即注册中心    </p>
 <ul>
 <li>访问<code>http://localhost:8761</code></li>
+</ul>
+<h3 id="创建-Eureka-Client"><a href="#创建-Eureka-Client" class="headerlink" title="创建 Eureka Client"></a>创建 Eureka Client</h3><ul>
+<li>在父目录下新建Module、Pom.xml</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建配置文件application.yml、添加Eureka Client相关配置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8010</span><br><span class="line">spring:</span><br><span class="line">  application:</span><br><span class="line">    name: provider</span><br><span class="line">eureka:</span><br><span class="line">  client:</span><br><span class="line">    service-url:</span><br><span class="line">      defaultZone: http://localhost:8761/eureka/</span><br><span class="line"></span><br><span class="line">  instance:</span><br><span class="line">    prefer-ip-address: true</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>属性说明：</p>
+</blockquote>
+<p>​    <code>spring.application.name:</code> 当前服务注册在Eureka Server上的名称</p>
+<p>​    <code>eureka.client.service-url.defaultZone:</code> 注册中心的访问地址</p>
+<p>​    <code>eureka.instace.prefer-ip-address:</code> 是否将当前服务的IP注册到Eureka Server</p>
+<ul>
+<li>创建启动类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.crescentd;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProviderApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(ProviderApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>首先启动注册中心Eureka Server 、 再启动服务提供者Eureka Client，访问<code>http://localhost:8761/</code> </li>
 </ul>
 
       
@@ -691,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud-起步（一）"><span class="nav-number">1.</span> <span class="nav-text">spring cloud 起步（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建注册中心"><span class="nav-number">1.1.</span> <span class="nav-text">创建注册中心</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud-起步（一）"><span class="nav-number">1.</span> <span class="nav-text">spring cloud 起步（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建注册中心"><span class="nav-number">1.1.</span> <span class="nav-text">创建注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Eureka-Client"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建 Eureka Client</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -732,7 +756,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.7k</span>
+    <span title="Site words total count">3.9k</span>
   
 </div>
 
