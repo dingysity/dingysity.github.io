@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[spring cloud 起步(-)]]></title>
+    <url>%2Fundefined%2Fspring-cloud-%E8%B5%B7%E6%AD%A5%2F</url>
+    <content type="text"><![CDATA[spring cloud 起步（一）创建注册中心 创建maven工程（不使用任何模板），添加依赖 1234567891011121314151617181920212223&lt;parent&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt; &lt;version&gt;2.0.7.RELEASE&lt;/version&gt;&lt;/parent&gt;&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt; &lt;/dependency&gt;&lt;/dependencies&gt;&lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;Finchley.SR2&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt;&lt;/dependencyManagement&gt; 在父工程下创建Module、pom.xml 1234567&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt; &lt;version&gt;2.0.2.RELEASE&lt;/version&gt; &lt;/dependency&gt;&lt;/dependencies&gt; 在子工程resources目录下创建配置文件application.yml(或 .properties) 、添加eureka配置 12345678server: port: 8761eureka: client: register-with-eureka: false fetch-registry: false service-url: defaultZone: http://localhost:8761/eureka/ 属性说明 ​ eureka.client.register-with-eureka: 是否将当前的eureka server服务作为客户端进行注册 ​ eureka.client.fecth.registry: 是否获取其他eureka server服务的数据 ​ eureka.client.service-url.defaultZone: 注册中心的访问地址 创建启动类 1234567891011121314package com.crescentd;import org.springframework.boot.SpringApplication;import org.springframework.boot.autoconfigure.SpringBootApplication;import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;@SpringBootApplication@EnableEurekaServerpublic class EurekaServerApplication &#123; public static void main(String[] args) &#123; SpringApplication.run(EurekaServerApplication.class,args); &#125;&#125; 注解说明: ​ @SpringBootApplication: 声明该类是Spring Boot服务的入口 ​ @EnableEurekaServer: 声明该类是一个Eureka Server微服务，提供服务注册和发现功能，即注册中心 访问http://localhost:8761]]></content>
+      <categories>
+        <category>springcloud,java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[记录前端js路径跳转问题]]></title>
     <url>%2Fundefined%2F%E8%AE%B0%E5%BD%95%E5%89%8D%E7%AB%AFjs%E8%B7%AF%E5%BE%84%E8%B7%B3%E8%BD%AC%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[记录前端js路径跳转问题在工作中处理前端路径跳转问题的时候碰到在a标签 中windows.location.replace 无法跳转的问题。 经试验：window.location.href 和location.href 同样不能跳转。 解决方案 a标签的href属性设置锚点 &lt;a href=&quot;#&quot; class=&quot;goBack&quot; onclick=&#39;event()&#39;&gt;&lt;/a&gt; 在事件后加上return false; (在事件内部加是无效的) &lt;a href=&quot;javascript:;&quot; class=&quot;goBack&quot; onclick=&#39;event();return false;&#39;&gt;&lt;/a&gt;]]></content>
