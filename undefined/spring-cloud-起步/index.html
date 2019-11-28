@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="ysity">
 <meta property="og:description" content="spring cloud 起步（一）创建注册中心 创建maven工程（不使用任何模板），添加依赖 1234567891011121314151617181920212223&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter">
 <meta property="og:locale" content="cn">
-<meta property="og:updated_time" content="2019-11-28T04:17:06.529Z">
+<meta property="og:updated_time" content="2019-11-28T14:52:23.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring cloud 起步(-)">
 <meta name="twitter:description" content="spring cloud 起步（一）创建注册中心 创建maven工程（不使用任何模板），添加依赖 1234567891011121314151617181920212223&amp;lt;parent&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter">
@@ -347,7 +347,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-28T12:17:06+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-28T22:52:23+08:00">
                 2019-11-28
               </time>
             
@@ -397,7 +397,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.5k
+                  2.2k
                 </span>
               
 
@@ -413,7 +413,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  8
+                  11
                 </span>
               
             </div>
@@ -549,6 +549,58 @@
 <p>getForObject 返回的是ResponseEntity，需要getBody()方法获取实体信息，而getForObject返回的是个泛型</p>
 </blockquote>
 <p>依次启动注册中心Eureka Server、服务提供 方Eureka Client、服务调用方RestTemplate，访问<code>http://localhost:8080/rest/findAll</code> ，同理其他接口调用类似</p>
+</li>
+</ul>
+<h3 id="服务消费者Consumer"><a href="#服务消费者Consumer" class="headerlink" title="服务消费者Consumer"></a>服务消费者Consumer</h3><ul>
+<li><p>创建Maven工程、添加Pom.xml依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建配置文件application.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8020</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">consumer</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://localhost:8761/eureka/</span></span><br><span class="line"><span class="attr">  instance:</span></span><br><span class="line"><span class="attr">    prefer-ip-address:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>之后步骤与RestTemplate相同</p>
+</li>
+</ul>
+<h3 id="服务网关Zuul"><a href="#服务网关Zuul" class="headerlink" title="服务网关Zuul"></a>服务网关Zuul</h3><ul>
+<li><p>创建Maven工程，添加pom依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-zuul<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加配置文件application.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line"><span class="attr">  port:</span> <span class="number">8030</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  application:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">gateway</span></span><br><span class="line"><span class="attr">eureka:</span></span><br><span class="line"><span class="attr">  client:</span></span><br><span class="line"><span class="attr">    service-url:</span></span><br><span class="line"><span class="attr">      defaultZone:</span> <span class="attr">http://localhost:8761/eureka/</span></span><br><span class="line"><span class="attr">zuul:</span></span><br><span class="line"><span class="attr">  routes:</span></span><br><span class="line"><span class="attr">    provider:</span> <span class="string">/p/**</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>属性介绍：</p>
+</blockquote>
+<p>​     <code>zuul.routes.provider</code> : 给服务提供者provider设置映射</p>
+</li>
+</ul>
+<ul>
+<li><p>创建启动类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.crescentd;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.EnableAutoConfiguration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.netflix.zuul.EnableZuulProxy;</span><br><span class="line"></span><br><span class="line"><span class="meta">@EnableZuulProxy</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZuulApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(ZuulApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注解说明：</p>
+</blockquote>
+<p>​    <code>@EnableZuulProxy:</code> 包含了<code>@EnableZuulServer</code> ，设置该类是网关的启动类</p>
+<p>​    <code>@EnableAutoConfiguration:</code> 可以帮助spring boot 应用将所有符合条件的<code>@Configuration</code> 配置加载到当         前spring boot创建并使用的IOC容器中 </p>
+</li>
+<li><p>依次启动注册中心、服务提供者、网关，访问<code>http://localhost:8030/p/student/findAll</code> ，其中  </p>
+<p><code>http://localhost:8030/p</code> 就相当于服务提供者的地址: <code>http://localhost:8010/</code></p>
+</li>
+<li><p>Zuul 自带了负载均衡的功能</p>
+<p>修改服务提供者<code>eureka client</code> 的<code>controller</code> ，在启动<code>eureka client</code> 后，修改配置文件的端口为8011，在同目录下复制启动类后，将复制的启动类启动，就会读取8011的端口。用这种方式模拟注册中心存在两个服务提供者。多次访问<code>http://localhost:8030/p/student/index</code>  会发现8010和8011交替出现，也就证明网关提供负载均衡的功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.crescentd.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.crescentd.entity.Student;</span><br><span class="line"><span class="keyword">import</span> com.crescentd.repository.StudentRepository;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/student"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentHandle</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> StudentRepository studentRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;server.port&#125;"</span>)</span><br><span class="line">    <span class="keyword">private</span> String port;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/findAll"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Collection&lt;Student&gt; <span class="title">findAll</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentRepository.findAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/findById/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Student <span class="title">findById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">long</span> id)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> studentRepository.findById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/save"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(@RequestBody Student student)</span></span>&#123;</span><br><span class="line">        studentRepository.saveOrUpdate(student);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PutMapping</span>(<span class="string">"/update"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(@RequestBody Student student)</span></span>&#123;</span><br><span class="line">        studentRepository.saveOrUpdate(student);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@DeleteMapping</span>(<span class="string">"/deleteById/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteById</span><span class="params">(@PathVariable(<span class="string">"id"</span>)</span> <span class="keyword">long</span> id)</span>&#123;</span><br><span class="line">        studentRepository.delete(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/index"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"当前端口是:"</span>+<span class="keyword">this</span>.port;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
 </li>
 </ul>
 
@@ -772,7 +824,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud-起步（一）"><span class="nav-number">1.</span> <span class="nav-text">spring cloud 起步（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建注册中心"><span class="nav-number">1.1.</span> <span class="nav-text">创建注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Eureka-Client"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建 Eureka Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RestTemplate的使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">RestTemplate的使用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#spring-cloud-起步（一）"><span class="nav-number">1.</span> <span class="nav-text">spring cloud 起步（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建注册中心"><span class="nav-number">1.1.</span> <span class="nav-text">创建注册中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-Eureka-Client"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建 Eureka Client</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RestTemplate的使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">RestTemplate的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务消费者Consumer"><span class="nav-number">1.1.3.</span> <span class="nav-text">服务消费者Consumer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务网关Zuul"><span class="nav-number">1.1.4.</span> <span class="nav-text">服务网关Zuul</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -813,7 +865,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">4.9k</span>
+    <span title="Site words total count">5.5k</span>
   
 </div>
 
