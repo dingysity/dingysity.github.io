@@ -346,7 +346,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-11-29T13:45:38+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-11-29T14:26:47+08:00">
                 2019-11-29
               </time>
             
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.7k
+                  1.9k
                 </span>
               
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  8
+                  9
                 </span>
               
             </div>
@@ -516,6 +516,22 @@
 </blockquote>
 <p>​    <code>ribbon.eager-load-enabled:</code> 开启<code>ribbon</code>的饥饿加载模式</p>
 <p>​    <code>ribbon.eager-load.clients:</code> 指定需要饥饿加载的服务名(即需求调用的服务)，有多个需要用逗号分隔</p>
+<h3 id="自定义Ribbon的负载策略"><a href="#自定义Ribbon的负载策略" class="headerlink" title="自定义Ribbon的负载策略"></a>自定义Ribbon的负载策略</h3><ul>
+<li>通过实现<code>IRule</code>接口可以自定义负载策略</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.crescentd.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.netflix.loadbalancer.ILoadBalancer;</span><br><span class="line"><span class="keyword">import</span> com.netflix.loadbalancer.IRule;</span><br><span class="line"><span class="keyword">import</span> com.netflix.loadbalancer.Server;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyRule</span> <span class="keyword">implements</span> <span class="title">IRule</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ILoadBalancer iLoadBalancer;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Server <span class="title">choose</span><span class="params">(Object o)</span> </span>&#123;</span><br><span class="line">        List&lt;Server&gt; servers = iLoadBalancer.getAllServers();</span><br><span class="line">        <span class="keyword">for</span> (Server server:servers)&#123;</span><br><span class="line">            System.out.println(<span class="string">"自定义负载策略："</span>+server.getHostPort());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> servers.get(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLoadBalancer</span><span class="params">(ILoadBalancer iLoadBalancer)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.iLoadBalancer = iLoadBalancer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ILoadBalancer <span class="title">getLoadBalancer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.iLoadBalancer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加配置信息</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">provider:</span></span><br><span class="line"><span class="attr">  ribbon:</span></span><br><span class="line"><span class="attr">    NFLoadBalancerRuleClassName:</span></span><br><span class="line">      <span class="string">com.crescentd.config.MyRule</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>配置说明：</p>
+</blockquote>
+<p>​    <code>provider:</code> 服务提供者在注册中心注册的服务名</p>
+<p>​    <code>NFLoadBalancerRuleClassName:</code> 指定负载均衡器的实现类</p>
+<p>​    注：以上也是配置负载均衡策略的方式</p>
 
           
         
@@ -2174,7 +2190,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">7.2k</span>
+    <span title="Site words total count">7.4k</span>
   
 </div>
 
