@@ -299,6 +299,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ysity.github.io/java/记录一道bt的面向对象题目/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yehang ding">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avadar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ysity">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/java/记录一道bt的面向对象题目/" itemprop="url">记录一道bt的面向对象题目</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-10T16:50:48+08:00">
+                2020-01-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2020-01-10T16:52:49+08:00">
+                2020-01-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  105
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="记录一道bt的面向对象题目"><a href="#记录一道bt的面向对象题目" class="headerlink" title="记录一道bt的面向对象题目"></a>记录一道bt的面向对象题目</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">new</span> B().getValue());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">int</span> value;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">A</span> <span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">            setValue(v);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.value= value;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getValue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                value ++;</span><br><span class="line">                <span class="keyword">return</span> value;</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    <span class="keyword">this</span>.setValue(value);</span><br><span class="line">                    System.out.println(value);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">B</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(<span class="number">5</span>);</span><br><span class="line">            setValue(getValue() - <span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setValue</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.setValue(<span class="number">2</span> * value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://ysity.github.io/java/dubbo快速使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2559,236 +2746,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ysity.github.io/前端/javascript中LHS和RHS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yehang ding">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avadar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ysity">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/前端/javascript中LHS和RHS/" itemprop="url">javascript中LHS和RHS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-17T15:19:09+08:00">
-                2019-09-17
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-09-20T10:00:56+08:00">
-                2019-09-20
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  1.6k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="JS中的LHS和RHS"><a href="#JS中的LHS和RHS" class="headerlink" title="JS中的LHS和RHS"></a>JS中的LHS和RHS</h1><h2 id="什么是LHS和RHS"><a href="#什么是LHS和RHS" class="headerlink" title="什么是LHS和RHS"></a>什么是LHS和RHS</h2><p>两者都是JS引擎存在的查询方式:</p>
-<p><strong>LHS（Left-hand Side）</strong>:left是指“=”号的左边，意思是要给查询得到的这个变量赋值，比如要吧1付给a变量，要先查询a是否存在，这时候用的就是LHS查询</p>
-<p><strong>RHS（Right-hand Side）</strong>:right指的是“=”号右边，意思是要获取某个变量的值，比如打印a变量，console.log(a);js引擎要去查询这个变量是否存在，得到变量只想的值，这个时候用的就是RHS查询</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a;</span><br><span class="line">  rerurn a + b;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="keyword">var</span> c = foo(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-
-<p>以上代码共有三次LHS和四次RHS查询：</p>
-<blockquote>
-<ol>
-<li><p>var c = foo(1)，需要对变量 c 赋值所以进行一次<strong>LHS查询</strong>，然后将 foo(1) 赋给 c ，foo(1) 的值从哪来呢，需要查找 foo(1) 的值，此时就对 foo(1) 进行一次<strong>RHS查询</strong></p>
-</li>
-<li><p>隐含赋值操作，foo(1) 将实参 1 传递给 function foo(a){……} 函数的形参 a ，a 在赋值操作的左侧，对 a 进行一次<strong>LHS查询</strong></p>
-</li>
-<li><p>var b = a，需要对变量 b 赋值所以进行一次<strong>LHS查询</strong>，b 的值将从 a 来 ，a 的值从哪来呢，需要查找 a 的值，此时就对 a 进行一次<strong>RHS查询</strong></p>
-</li>
-<li><p>return a+b 中，需要找到 a 与 b 的值的来源，a 与 b 都在赋值操作的右侧，才能得到 a+b 的值，所以对 a 与 b 都是进行<strong>RHS查询</strong>引用。</p>
-</li>
-</ol>
-</blockquote>
-<h2 id="Notice"><a href="#Notice" class="headerlink" title="Notice"></a>Notice</h2><p>LHS和RHS的含义是“赋值操作的左侧或右侧”并不一定意味着就是”=”赋值操作符的左侧或右侧。</p>
-<p>当变量出现在赋值操作的左侧时进行LHS查询，出现在赋值操作的右侧时进行RHS查询</p>
-<p>RHS查询与简单地查找某个变量的值别无二致，而LHS查询则是试图找到变量的容器本身，从而可以对其赋值。</p>
-<p>如果查找目的是对变量进行赋值，那么就使用LHS查询；如果目的是获取变量的值，就会使用RHS查询。（即可简单理解成”赋值操作的目标是谁（LHS）”以及”谁是赋值操作的源头(RHS)”）</p>
-<h2 id="作用域嵌套"><a href="#作用域嵌套" class="headerlink" title="作用域嵌套"></a>作用域嵌套</h2><p>当一个块或函数嵌套在另一个块或函数中时，就发生了作用域的嵌套。遍历嵌套作用域链的规则很简单：引擎从当前的执行作用域开始查找变量，如果找不到，就向上一级继续查找。当抵达最外层的全局作用域时，无论找到还是没找到，查找过程都会停止。</p>
-<p>这就说明了为什么不加var时定义的是全局变量。</p>
-<h2 id="关于报错"><a href="#关于报错" class="headerlink" title="关于报错"></a>关于报错</h2><p>LHS查询比较松散，如果查询不到，就会创建一个全局的，不会抛出异常。RHS查询比较严格，如果查询不到的话就会抛出异常，因为你要获取某个变量指向的值，可是根本就没有那个变量，这个时候已经超出它的能力范围，所以只能抛出异常</p>
-<p>如下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a+b)</span><br><span class="line">  b=a</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p><code>b=a</code> 不是变量声明，编译过程中不会将其提前，也就是说，b是一个未声明的变量，在任何相关作用域中都无法找到，因此在执行a+b时RHS查询在所有嵌套的作用域中都遍寻不到所需的变量，因此就会抛出 <code>Uncaught ReferenceError: b is not defined</code>这样一个错误</p>
-<p>JS引擎具体工作过程如下：</p>
-<ol>
-<li>在当前作用域中查找名为foo的函数(RHS)</li>
-<li>进入 foo函数体，首先 JS 引擎在执行前会对整个函数的声明部分做完整分析（包括局部变量），从而确定变量的作用域（js引擎读取一段js代码，首先执行预解析，就是逐行读取js代码，寻找全局变量和全局函数，遇到全局变量，把变量的值变为undefind,存在内存中，遇到全局函数，直接存在内存中，这个过程如果发现语法错误，预解析终止）。因此第一步搜集变量，发现在函数作用域中这里只有作为参数的局部变量 a，提升到作用域顶部。</li>
-<li>将 1 赋值给 a (a = 1,LHS)</li>
-<li>查找 console 对象（RHS），发现是内置函数，在 console 对象下查找 log 函数（RHS）</li>
-<li>在当前作用域中查找变量 a，并获取 a 的值为（a = 1, RHS）</li>
-<li>在当前作用域中查找变量 b，未找到该变量</li>
-<li>将 a 和 b 的查找结果传入 console.log() 函数，打印结果（ b 未定义，抛出 Uncaught ReferenceError:b is not defined）</li>
-</ol>
-<h2 id="为什么要区分LHS和RHS"><a href="#为什么要区分LHS和RHS" class="headerlink" title="为什么要区分LHS和RHS"></a>为什么要区分LHS和RHS</h2><p>这两种不同的引用方式的在对没有声明的变量的处理上是不同的。而这个不同之处对于我们编写代码和分析JS引擎报的错误是很有用处的。</p>
-<ul>
-<li>当对一个变量执行RHS查询时，如果遍历该变量所在处的词法作用域未能找到这个变量，JS引擎就会抛出 ReferenceError 错误如果成功查询到了这个变量，但是对这个变量执行不合理操作，比如对一个非数组的变量执行下标取值，JS引擎就会抛出 TypeError 错误</li>
-<li>当对一个变量执行LHS查询时，同样在遍历作用域后无法找到该变量，在非ES5的严格模式下，系统就会自动在全局作用域中创建一个同名变量，并将引用转移到该新建的全局变量中。而在ES5的严格模式下，LHS查询失败时JS引擎会抛出一个同RHS一样的 ReferenceError 错误。</li>
-</ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>看到这里应该就能理解为什么使用未定义的变量有时报错有时正常。如果是访问对象的属性就不存在LHS和RHS查询了，找不到就返回 undefined。对这些有更加深刻的理解无论是对JS执行过程本身还是分析抛出的异常都是有好处的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2841,7 +2798,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2951,7 +2908,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">10.9k</span>
+    <span title="Site words total count">11k</span>
   
 </div>
 
